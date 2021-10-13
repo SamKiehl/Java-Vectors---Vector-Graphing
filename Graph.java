@@ -2,10 +2,10 @@ import java.awt.*;
 import java.util.ArrayList;
 class Graph extends Canvas{  
   private String name;
-  private int xDim, yDim;
+  private int xDim, yDim, multiplier;
   private ArrayList<Vector> vectors;
   private ArrayList<double[]> vBreakdowns;
-  public Graph(String name, int xDim, int yDim, ArrayList<Vector> vectors) {  
+  public Graph(String name, int xDim, int yDim, int multiplier, ArrayList<Vector> vectors) {  
     this.name = name + ": ["; 
     for(int i = 0; i < vectors.size(); i++){
       this.name += vectors.get(i).getName();
@@ -16,6 +16,7 @@ class Graph extends Canvas{
     
     this.xDim = xDim;
     this.yDim = yDim;
+    this.multiplier = multiplier;
     this.vectors = vectors;
     this.vBreakdowns = new ArrayList<double[]>();
     setBackground(Color.BLACK);
@@ -53,8 +54,8 @@ class Graph extends Canvas{
     double x1, y1, x2, y2;
     x1 = this.xDim / 2;
     y1 = this.yDim / 2;             //FIX
-    x2 = x1 + v.getIHat();
-    y2 = y1 - v.getJHat();
+    x2 = x1 + this.multiplier * v.getIHat();
+    y2 = y1 - this.multiplier * v.getJHat();
 
     return new double[]{x1, y1, x2, y2};
   }
@@ -69,7 +70,6 @@ class Graph extends Canvas{
     v.add(new Vector("v2", 0, -20));
     v.add(v.get(0).minus(v.get(1)));
 
-    Graph graph = new Graph("Graph", 700, 700, v);
-
+    Graph graph = new Graph("Graph", 700, 700, 5, v);
   }
 }       
