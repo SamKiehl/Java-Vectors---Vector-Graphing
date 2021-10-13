@@ -45,7 +45,7 @@ class Graph extends Canvas{
     g.setColor(Color.GREEN); 
 
     for(double[] a : vBreakdowns)
-      g.drawLine((int)(a[0]), (int)(a[1]), (int)(a[2]), (int)(a[3])); // Rounding :(
+      g.drawLine((int)Math.round(a[0]), (int)Math.round(a[1]), (int)Math.round(a[2]), (int)Math.round(a[3])); // Rounding :(
 
   }
 
@@ -65,11 +65,9 @@ class Graph extends Canvas{
 
   public static void main(String[] args){
     ArrayList<Vector> v = new ArrayList<Vector>();
-    v.add(new Vector("v1", 50, 50));
-    v.add(new Vector("v2", -50, 150));
-    v.add(new Vector("v3", 190, -120));
-    v.add(v.get(0).plus(v.get(1)));
-    v.add(v.get(1).minus(v.get(2)));
+    v.add(new Vector("v1", -14.142, 14.142));
+    v.add(new Vector("v2", 0, -20));
+    v.add(v.get(0).minus(v.get(1)));
 
     Graph graph = new Graph("Graph", 700, 700, v);
 

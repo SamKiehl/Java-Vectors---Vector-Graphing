@@ -70,20 +70,13 @@ public class Vector{
     }
     public static void main(String[] args){
 
-        Vector A = new Vector("A", 7, 7);
+        Vector A = new Vector("A", -14.142, 14.142);
         System.out.println(A);
 
-        Vector B = new Vector("B", -7, -7);
+        Vector B = new Vector("B", 0, -20);
         System.out.println(B);
 
-        Vector C = A.plus(B);
-        System.out.println(C);
-
-        Vector D = A.minus(B);
-        System.out.println(D);
-
-        Vector E = B.minus(A);
-        System.out.println(E);
+        System.out.println(A.minus(B));
 
     }
 }
