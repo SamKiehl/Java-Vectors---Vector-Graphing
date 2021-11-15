@@ -139,16 +139,13 @@ class Graph extends Canvas{
 
   public static void main(String[] args){
     ArrayList<Vector> v = new ArrayList<Vector>();
-    v.add(new Vector("v1", -14.142, 14.142));
-    v.add(new Vector("v2", 0, -20));
+    v.add(new Vector("v0", -14.142, 14.142));
+    v.add(new Vector("v1", 0, -20));
+    v.add(new Vector("v2", 30, 45));
     v.add(v.get(0).plus(v.get(1)));
+    v.add(v.get(2).plus(v.get(1)));
 
     Graph graph = new Graph("Graph", 700, 700, 5, v, 0);
-    Graph graph1 = new Graph("Graph", 700, 700, 5, v, 1);
-    Graph graph2 = new Graph("Graph", 700, 700, 5, v, 2);
-
-
-    
     
     
     // Exit stuff
